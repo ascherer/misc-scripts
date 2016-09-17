@@ -68,8 +68,8 @@ BEGIN {
 	for(i=3; i<=NF; ++i)
 	{
 		sub(/uid[ ]+/, "", $i) # Remove the "uid" part of the data line
-		sub(/>/, "\&gt;</code>", $i)
-		sub(/ </, "</b> <code class=\"email\">\&lt;", $i)
+		sub(/>/, "\\&gt;</code>", $i)
+		sub(/ </, "</b> <code class=\"email\">\\&lt;", $i)
 
 		printf("%s", $i)
 		if (i<NF) printf("<br/>\n<b>") # User has multiple IDs
