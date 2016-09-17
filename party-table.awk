@@ -69,9 +69,9 @@ BEGIN {
 		sub(/uid[ ]+/, "", $i) # Remove the "uid" part of the data line
 		sub(/>/, "\\&gt;</code>", $i)
 		has_email = sub(/ </, "</b> <code class=\"email\">\\&lt;", $i)
-		if (0 == has_email) print "</b>"
 
 		printf("%s", $i)
+		if (0 == has_email) print "</b>"
 		if (i<NF) printf("<br/>\n<b>") # User has multiple IDs
 	}
 	print "</td>"
