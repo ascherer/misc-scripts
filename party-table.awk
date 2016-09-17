@@ -81,8 +81,8 @@ BEGIN {
 
 	printf("<td class=\"keytype\">%s<br/>%s</td>\n", keylength, encryption)
 	if (expired) print "<td><b>Expired!</b></td>"
-	else print "<td/>"
-	print "<td/>"
+	else print "<td></td>"
+	print "<td></td>"
 	print "</tr>"
 }
 
