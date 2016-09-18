@@ -46,9 +46,9 @@ BEGIN {
 	typeid = match(keytype,/[A-Z]/) # separate key-length and encryption
 	keylength = substr(keytype, 0, typeid-1)
 	encryption = substr(keytype, typeid)
-	if (encryption=="D") encryption="DSA"
-	if (encryption=="R") encryption="RSA"
-	if (encryption=="G") encryption="El Gamal"
+	sub(/D/, "DSA", encryption)
+	sub(/R/, "RSA", encryption)
+	sub(/G/, "El Gamal", encryption)
 
 	print expired ? "<tr class=\"expired\">" : "<tr>"
 	printf("<td><code>%s</code></td>\n", keyid)
