@@ -1,6 +1,6 @@
 #!/usr/bin/awk -f
 # This AWK programme expects its input in the format created by
-# $ gpg --fingerprint --keyring pubring.gpg | sed -e '1,2d'
+# $ gpg --fingerprint --keyring pubring.gpg | tail -n+3
 # It prints its output to stdout.
 
 BEGIN {
