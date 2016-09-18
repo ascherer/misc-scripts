@@ -52,8 +52,7 @@ BEGIN {
 	if (encryption=="R") encryption="RSA"
 	if (encryption=="G") encryption="El Gamal"
 
-	if (expired) print "<tr class=\"expired\">"
-	else print "<tr>"
+	print expired ? "<tr class=\"expired\">" : "<tr>"
 	printf("<td><code>%s</code></td>\n", keyid)
 
 	# The second line of each entry is the "fingerprint"
@@ -61,14 +60,13 @@ BEGIN {
 	fingerprint = fingerline[2]
 
 	# The third and following lines are the "uid" lines
-	printf("<td><b>")
+	print "<td><b>"
 	if ($NF ~ /sub/) --NF # The (optional) final "sub"-line is discarded
 	for(i=3; i<=NF; ++i)
 	{
 		sub(/uid[ ]+/, "", $i) # Remove the "uid" part of the data line
 		sub(/>/, "\\&gt;</code>", $i)
 		has_email = sub(/ </, "</b> <code class=\"email\">\\&lt;", $i)
-
 		printf("%s", $i)
 		if (0 == has_email) print "</b>"
 		if (i<NF) printf("<br/>\n<b>") # User has multiple IDs
@@ -79,8 +77,7 @@ BEGIN {
 	printf("<td class=\"fingerprint\"><code>%s</code></td>\n", fingerprint)
 
 	printf("<td class=\"keytype\">%s<br/>%s</td>\n", keylength, encryption)
-	if (expired) print "<td><b>Expired!</b></td>"
-	else print "<td></td>"
+	print expired ? "<td><b>Expired!</b></td>" : "<td></td>"
 	print "<td></td>" \
 		"</tr>"
 }
