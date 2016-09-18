@@ -7,38 +7,36 @@ BEGIN {
 	# separated by empty lines.
 	FS = "\n"; RS = ""
 
-	print "<!DOCTYPE html>"
-	print "<html lang=\"en\">"
-	print "<head>"
-	print "	<meta charset=\"utf-8\"/>"
-	print "	<title>List of Public Keys</title>"
-	print "	<style type=\"text/css\">"
-	print "	.keytype { text-align: center; }"
-	print "	.fingerprint, .email { font-size: small; }"
-	print "	.expired { background-color: red; color: yellow; }"
-	print "	th { padding: 1ex 0.5em; }"
-	print "	td { padding: 0.5ex 0.5em; }"
-	print " table, th, td { border: 1px solid gray; }"
-	print "	</style>"
-	print "</head>"
-	print "<body>"
-	print ""
-	print "<table>"
-	print ""
-	print "<thead>"
-	print "<tr>"
-	print "<th>Key ID</th>"
-	print "<th>User ID(s)</th>"
-	print "<th>Fingerprint</th>"
-	print "<th>Keytype</th>"
-	print "<th>Key Matches?</th>"
-	print "<th>Owner Matches?</th>"
-	print "</tr>"
-	print "</thead>"
-	print ""
-#	print "<tfoot></tfoot>"
-#	print ""
-	print "<tbody>"
+	print "<!DOCTYPE html>" \
+		"<html lang=\"en\">" \
+		"<head>" \
+		"	<meta charset=\"utf-8\"/>" \
+		"	<title>List of Public Keys</title>" \
+		"	<style type=\"text/css\">" \
+		"	.keytype { text-align: center; }" \
+		"	.fingerprint, .email { font-size: small; }" \
+		"	.expired { background-color: red; color: yellow; }" \
+		"	th { padding: 1ex 0.5em; }" \
+		"	td { padding: 0.5ex 0.5em; }" \
+		"	table, th, td { border: 1px solid gray; }" \
+		"	</style>" \
+		"</head>" \
+		"<body>" \
+		"" \
+		"<table>" \
+		"" \
+		"<thead>" \
+		"<tr>" \
+		"<th>Key ID</th>" \
+		"<th>User ID(s)</th>" \
+		"<th>Fingerprint</th>" \
+		"<th>Keytype</th>" \
+		"<th>Key Matches?</th>" \
+		"<th>Owner Matches?</th>" \
+		"</tr>" \
+		"</thead>" \
+		"" \
+		"<tbody>"
 }
 
 { # Treat a single record in this block
@@ -83,15 +81,15 @@ BEGIN {
 	printf("<td class=\"keytype\">%s<br/>%s</td>\n", keylength, encryption)
 	if (expired) print "<td><b>Expired!</b></td>"
 	else print "<td></td>"
-	print "<td></td>"
-	print "</tr>"
+	print "<td></td>" \
+		"</tr>"
 }
 
 END {
-	print "</tbody>"
-	print ""
-	print "</table>"
-	print ""
-	print "</body>"
-	print "</html>"
+	print "</tbody>" \
+		"" \
+		"</table>" \
+		"" \
+		"</body>" \
+		"</html>"
 }
