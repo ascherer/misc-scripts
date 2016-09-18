@@ -1,3 +1,4 @@
+#!/usr/bin/awk -f
 # This AWK programme expects its input in the format created by
 # $ gpg --fingerprint --keyring pubring.gpg | sed -e '1,2d'
 
