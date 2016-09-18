@@ -44,7 +44,7 @@ BEGIN {
 	keyid = publine[2]
 	expired = match(publine[4], /verfallen/) # Change to "expired" if necc.
 	typeid = match(keytype,/[A-Z]/) # separate key-length and encryption
-	keylength = substr(keytype, 0, typeid)
+	keylength = substr(keytype, 0, typeid-1)
 	encryption = substr(keytype, typeid)
 	if (encryption=="D") encryption="DSA"
 	if (encryption=="R") encryption="RSA"
